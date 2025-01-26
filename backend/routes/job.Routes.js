@@ -10,3 +10,4 @@ JobRouter.route('/get/:id').get( isAuthenticated ,JobById)
 JobRouter.route('/getadminjob').get( isAuthenticated,JobCreatByAdmin)
 
 export default JobRouter
+ 

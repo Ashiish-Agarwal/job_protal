@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-const {Schema} = mongoose
 
-const ApplicationSChema= new Schema({
-    name:{
+
+const ApplicationSChema= new mongoose.Schema({
+    job:{
         type:mongoose.Types.ObjectId,
-        ref:'Job',
+        ref:'JobModel',
         requred:true
     },
     applicants:{
@@ -20,4 +20,4 @@ const ApplicationSChema= new Schema({
 
 
 },{timestamps:true})
-export const Application = mongoose.model('ApplicationSChema',ApplicationSChema)
+export const Application = mongoose.model('Application',ApplicationSChema)

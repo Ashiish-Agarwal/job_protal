@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import userrouter from './routes/user.routes.js';
 import CompanyRouter from './routes/company.routes.js';
 import JobRouter from './routes/job.Routes.js';
+import applicationsrouter from './routes/applications.routes.js';
 
 
 
@@ -35,6 +36,7 @@ app.get('/',(req,res)=>{
 app.use("/api/v1/user",userrouter)
 app.use("/api/v1/company",CompanyRouter)
 app.use('/api/v1/job',JobRouter)
+app.use('/api/v1/applications',applicationsrouter)
 
 app.listen(Port,()=>{
     mongodb()

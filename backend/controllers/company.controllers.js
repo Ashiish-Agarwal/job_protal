@@ -46,11 +46,11 @@ export const CompanyRegister = async(req,res)=>
 
             const userId = req.id
             const Companies = await Company.find({userId})
-            if(!Companies){
+            if(!Companies || !userId){
                 return res.status(404).json({
                     message: "Company not found",
                     success:false
-                    
+                     
                 })
             } 
             return (
@@ -83,13 +83,21 @@ export const CompanyRegister = async(req,res)=>
             
             
             const companyId = req.params.id
+
+            if( !companyId){
+                return res.status(404).json({
+                message: "Company not found",
+                success:false
+            })}
+
             const company= await Company.findById(companyId)
-            if(!company){
+            if(!company ){
                 return res.status(404).json({
                 message: "Company not found",
                 success:false
             })
         }
+
         res.status(200).json({
             message: 'Company successfully found',
             company,
@@ -97,11 +105,14 @@ export const CompanyRegister = async(req,res)=>
         })
         
     } catch (error) {
-    console.log(`err in Compnaynotfound${error}`)
+    console.log(`err in Compnay not found${error}`)
         
     }
 
     }
+
+
+    
     export const companyUpdate=async(req,res)=>{
 
 try {
